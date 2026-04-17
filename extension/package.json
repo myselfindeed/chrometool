@@ -1,0 +1,32 @@
+{
+  "name": "web-element-data-collector",
+  "version": "1.0.0",
+  "description": "Chrome extension for collecting web element data and exporting to Excel",
+  "main": "scripts/background.js",
+  "scripts": {
+    "build": "echo 'Building extension...'",
+    "package": "zip -r ../web-element-collector.zip . -x '*.git*' 'node_modules/*' 'package.json'",
+    "clean": "rm -f *.log *.tmp"
+  },
+  "keywords": [
+    "chrome-extension",
+    "web-scraping",
+    "data-collection",
+    "excel-export"
+  ],
+  "author": "Web Data Collector Team",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "sortablejs": "^1.15.0",
+    "xlsx": "^0.18.5"
+  },
+  "browserslist": [
+    "Chrome >= 88",
+    "Firefox >= 85",
+    "Safari >= 14",
+    "Edge >= 88"
+  ]
+}

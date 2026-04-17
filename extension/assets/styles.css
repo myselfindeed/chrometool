@@ -1,0 +1,487 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    width: 400px;
+    min-height: 100vh;
+}
+
+/* 头部样式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    background: linear-gradient(135deg, #4285F4, #34A853);
+    color: white;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.header h1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background: #4285F4;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #3367d6;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-success {
+    background: #34A853;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-success:hover {
+    background: #2d8f47;
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #5f6368;
+    border: 1px solid #dadce0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #f1f3f4;
+    border-color: #c4c7c5;
+}
+
+.btn-danger {
+    background: #ea4335;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+    background: #d93025;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+/* 引导区域 */
+.guide-section {
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.guide-content h3 {
+    margin-bottom: 16px;
+    color: #202124;
+    font-size: 16px;
+}
+
+.guide-content ol {
+    text-align: left;
+    margin-bottom: 24px;
+    padding-left: 20px;
+}
+
+.guide-content li {
+    margin-bottom: 8px;
+    color: #5f6368;
+}
+
+/* 选取模式 */
+.selection-mode {
+    padding: 24px 16px;
+}
+
+.selection-notice {
+    text-align: center;
+    padding: 24px;
+    background: #e8f5e8;
+    border: 2px dashed #34A853;
+    border-radius: 8px;
+}
+
+.selection-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.selection-notice h3 {
+    margin-bottom: 8px;
+    color: #2d8f47;
+}
+
+.selection-notice p {
+    margin-bottom: 8px;
+    color: #5f6368;
+}
+
+.selection-count {
+    font-weight: 600;
+    color: #34A853;
+    margin-bottom: 16px;
+}
+
+.selection-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* 元素列表 */
+.elements-section {
+    padding: 16px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h3 {
+    font-size: 16px;
+    color: #202124;
+}
+
+.section-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.elements-list {
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.element-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: move;
+    transition: background-color 0.2s;
+}
+
+.element-item:last-child {
+    border-bottom: none;
+}
+
+.element-item:hover {
+    background-color: #f8f9fa;
+}
+
+.element-highlight {
+    background-color: #e3f2fd;
+    border-left: 3px solid #4285F4;
+}
+
+.element-drag {
+    color: #9aa0a6;
+    margin-right: 12px;
+    cursor: move;
+}
+
+.element-content {
+    flex: 1;
+}
+
+.element-name {
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.element-name:hover {
+    background-color: #f1f3f4;
+}
+
+.element-input {
+    width: 100%;
+    padding: 4px 8px;
+    border: 2px solid #4285F4;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+}
+
+.btn-remove {
+    color: #ea4335;
+    padding: 4px;
+    margin-left: 8px;
+}
+
+.btn-remove:hover {
+    background-color: #fce8e6;
+}
+
+/* 采集控制区 */
+.collection-section {
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.progress-info {
+    margin-top: 12px;
+    text-align: center;
+    color: #5f6368;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4285F4, #34A853);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* 导出功能区 */
+.export-section {
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.export-header {
+    margin-bottom: 16px;
+}
+
+.export-header h3 {
+    color: #202124;
+    font-size: 16px;
+}
+
+.column-mapping {
+    margin-bottom: 16px;
+}
+
+.column-mapping h4 {
+    margin-bottom: 12px;
+    color: #5f6368;
+    font-size: 14px;
+}
+
+.column-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+}
+
+.column-label {
+    min-width: 120px;
+    color: #5f6368;
+    font-size: 13px;
+}
+
+.column-input {
+    flex: 1;
+    padding: 6px 8px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.column-input:focus {
+    outline: none;
+    border-color: #4285F4;
+}
+
+/* 模态框 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    color: #202124;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #9aa0a6;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.modal-close:hover {
+    background-color: #f1f3f4;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-body h4 {
+    margin-bottom: 12px;
+    color: #202124;
+    font-size: 16px;
+}
+
+.modal-body ol, .modal-body ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.modal-body li {
+    margin-bottom: 4px;
+    color: #5f6368;
+}
+
+/* 设置相关 */
+.setting-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.setting-item label {
+    min-width: 100px;
+    color: #5f6368;
+    font-size: 14px;
+}
+
+.setting-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.setting-input:focus {
+    outline: none;
+    border-color: #4285F4;
+}
+
+.setting-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* 响应式设计 */
+@media (max-width: 450px) {
+    body {
+        width: 100vw;
+    }
+
+    .header {
+        padding: 12px;
+    }
+
+    .header h1 {
+        font-size: 14px;
+    }
+}

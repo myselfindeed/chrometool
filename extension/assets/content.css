@@ -1,0 +1,159 @@
+/* 内容脚本样式 - 用于元素高亮和覆盖层 */
+
+/* 元素选取相关样式 */
+.element-selector-highlight {
+    outline: 3px solid #ea4335 !important;
+    outline-offset: 2px !important;
+    background-color: rgba(234, 67, 53, 0.1) !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+.element-selector-hover {
+    outline: 2px solid #4285f4 !important;
+    outline-offset: 1px !important;
+    background-color: rgba(66, 133, 244, 0.1) !important;
+}
+
+/* 防止其他样式干扰 */
+.element-selector-highlight * {
+    pointer-events: none !important;
+}
+
+.element-selector-hover * {
+    pointer-events: none !important;
+}
+
+/* 覆盖层样式 */
+#element-selector-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 2147483647 !important; /* 最大z-index值 */
+    background: rgba(66, 133, 244, 0.95) !important;
+    color: white !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 14px !important;
+    pointer-events: auto !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+.selector-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.selector-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-weight: 500 !important;
+}
+
+.selector-icon {
+    font-size: 18px !important;
+    animation: pulse 2s infinite !important;
+}
+
+.selector-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.selector-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+.selector-hint {
+    padding: 8px 16px !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    opacity: 0.9 !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 通知样式 */
+.selector-notification {
+    position: fixed !important;
+    top: 80px !important;
+    right: 20px !important;
+    background: #4285f4 !important;
+    color: white !important;
+    padding: 12px 16px !important;
+    border-radius: 6px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 14px !important;
+    z-index: 2147483647 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    animation: slideInRight 0.3s ease-out !important;
+    max-width: 300px !important;
+    word-wrap: break-word !important;
+}
+
+.selector-notification.notification-warning {
+    background: #fbbc04 !important;
+    color: #333 !important;
+}
+
+.selector-notification.notification-error {
+    background: #ea4335 !important;
+}
+
+/* 动画 */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%) !important;
+        opacity: 0 !important;
+    }
+    to {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1 !important;
+    }
+    50% {
+        opacity: 0.7 !important;
+    }
+}
+
+/* 确保覆盖层在所有页面元素之上 */
+#element-selector-overlay * {
+    box-sizing: border-box !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #element-selector-overlay {
+        font-size: 12px !important;
+    }
+
+    .selector-header {
+        padding: 8px 12px !important;
+    }
+
+    .selector-hint {
+        padding: 6px 12px !important;
+    }
+
+    .selector-notification {
+        max-width: 250px !important;
+        font-size: 12px !important;
+    }
+}

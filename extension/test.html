@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web元素数据采集器 - 测试页面</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .test-section h2 {
+            margin-top: 0;
+            color: #4285F4;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .product-image {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #202124;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #ea4335;
+            font-weight: 500;
+        }
+
+        .product-desc {
+            color: #5f6368;
+            margin-top: 5px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #202124;
+        }
+
+        .user-info {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4285F4;
+        }
+
+        .stat-label {
+            color: #5f6368;
+            margin-top: 5px;
+        }
+
+        .test-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .test-notice strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-notice">
+        <strong>🧪 测试页面提示</strong>
+        这是一个用于测试Web元素数据采集器扩展的页面。
+        请安装扩展后，使用扩展的元素选取功能来测试各种元素类型的采集。
+    </div>
+
+    <div class="user-info">
+        <h3>用户信息</h3>
+        <p><strong>用户名：</strong><span class="username">张三</span></p>
+        <p><strong>会员等级：</strong><span class="user-level">VIP会员</span></p>
+        <p><strong>注册时间：</strong><span class="reg-date">2023-01-15</span></p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">1,234</div>
+            <div class="stat-label">总销量</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">98.5%</div>
+            <div class="stat-label">好评率</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">567</div>
+            <div class="stat-label">收藏数</div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="category-title">热门商品</h2>
+
+        <div class="product-item">
+            <div class="product-image">📱</div>
+            <div class="product-info">
+                <div class="product-name">iPhone 15 Pro Max</div>
+                <div class="product-price">¥8999</div>
+                <div class="product-desc">最新款iPhone，A17 Pro芯片，钛金属设计</div>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-image">💻</div>
+            <div class="product-info">
+                <div class="product-name">MacBook Pro 16寸</div>
+                <div class="product-price">¥19999</div>
+                <div class="product-desc">M3 Max芯片，32GB内存，1TB SSD</div>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-image">⌚</div>
+            <div class="product-info">
+                <div class="product-name">Apple Watch Ultra 2</div>
+                <div class="product-price">¥6299</div>
+                <div class="product-desc">钛金属表壳，S9芯片，精准健康监测</div>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-image">🎧</div>
+            <div class="product-info">
+                <div class="product-name">AirPods Pro (第二代)</div>
+                <div class="product-price">¥1899</div>
+                <div class="product-desc">主动降噪，空间音频，自适应音频</div>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-image">📺</div>
+            <div class="product-info">
+                <div class="product-name">Apple TV 4K</div>
+                <div class="product-price">¥1499</div>
+                <div class="product-desc">A15 Bionic芯片，4K HDR，Dolby Vision</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>测试链接</h2>
+        <ul>
+            <li><a href="https://www.apple.com" target="_blank">Apple官网</a></li>
+            <li><a href="https://developer.chrome.com" target="_blank">Chrome开发者文档</a></li>
+            <li><a href="https://vuejs.org" target="_blank">Vue.js官网</a></li>
+            <li><a href="mailto:test@example.com">联系我们</a></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>测试图片</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjNDI4NUY0Ii8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvZHVjdDwvdGV4dD4KPHN2Zz4=" alt="测试产品1" style="width: 100px; height: 100px; border-radius: 8px;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzRBODUzIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2U8L3RleHQ+Cjwvc3ZnPg==" alt="测试产品2" style="width: 100px; height: 100px; border-radius: 8px;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRUE0MzM1Ii8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UGhvdG88L3RleHQ+Cjwvc3ZnPg==" alt="测试产品3" style="width: 100px; height: 100px; border-radius: 8px;">
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>自定义属性测试</h2>
+        <div data-product-id="12345" data-category="electronics" class="custom-element">
+            产品ID: <span class="product-id">P001</span>
+        </div>
+        <div data-user-role="admin" data-permission="read-write" class="custom-element">
+            用户角色: <span class="user-role">管理员</span>
+        </div>
+    </div>
+
+    <script>
+        // 添加一些动态内容用于测试
+        console.log('测试页面加载完成');
+        console.log('页面包含各种元素类型：文本、链接、图片、自定义属性');
+        console.log('可以使用Web元素数据采集器扩展来测试功能');
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web元素数据采集器 - 精简版</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding: 20px; width: 350px; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .btn { padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-primary { background: #4285f4; color: white; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #e8f5e8; color: #2d8f47; }
+        .error { background: #fce8e6; color: #d93025; }
+        .info { background: #e3f2fd; color: #1565c0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Web元素数据采集器</h2>
+        <p>精简版 - 无外部依赖</p>
+    </div>
+
+    <button class="btn btn-primary" onclick="startSelection()">开始选取元素</button>
+    <button class="btn btn-primary" onclick="collectData()">采集数据</button>
+    <button class="btn btn-primary" onclick="exportData()">导出Excel</button>
+
+    <div id="status" class="status info">
+        准备就绪 - 点击"开始选取"开始使用
+    </div>
+
+    <div id="results"></div>
+
+    <script>
+        let selectedElements = [];
+        let collectedData = [];
+
+        function updateStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = message;
+        }
+
+        function startSelection() {
+            updateStatus('元素选取模式已启动，请在网页上点击要采集的元素', 'info');
+
+            // 发送消息到content script
+            chrome.runtime.sendMessage({
+                action: 'startSelection',
+                maxElements: 5
+            });
+        }
+
+        function collectData() {
+            if (selectedElements.length === 0) {
+                updateStatus('请先选择元素', 'error');
+                return;
+            }
+
+            updateStatus('正在采集数据...', 'info');
+
+            chrome.runtime.sendMessage({
+                action: 'collectData',
+                elements: selectedElements
+            });
+        }
+
+        function exportData() {
+            if (collectedData.length === 0) {
+                updateStatus('没有数据可导出', 'error');
+                return;
+            }
+
+            updateStatus('正在导出Excel...', 'info');
+
+            // 使用简单的CSV导出代替复杂的Excel
+            const csv = convertToCSV(collectedData);
+            downloadCSV(csv);
+        }
+
+        function convertToCSV(data) {
+            if (data.length === 0) return '';
+
+            const headers = Object.keys(data[0]);
+            const csvRows = [];
+
+            // 添加表头
+            csvRows.push(headers.join(','));
+
+            // 添加数据行
+            data.forEach(row => {
+                const values = headers.map(header => {
+                    const value = row[header] || '';
+                    // 处理包含逗号的值
+                    return `"${value.toString().replace(/"/g, '""')}"`;
+                });
+                csvRows.push(values.join(','));
+            });
+
+            return csvRows.join('\n');
+        }
+
+        function downloadCSV(csvContent) {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+
+            chrome.downloads.download({
+                url: url,
+                filename: 'data_collection.csv',
+                saveAs: true
+            }).then(() => {
+                updateStatus('CSV文件导出成功', 'success');
+                URL.revokeObjectURL(url);
+            }).catch(error => {
+                updateStatus('导出失败: ' + error.message, 'error');
+            });
+        }
+
+        // 监听来自content script的消息
+        chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+            if (message.action === 'elementSelected') {
+                selectedElements.push(message.element);
+                updateStatus(`已选择 ${selectedElements.length} 个元素`, 'success');
+            } else if (message.action === 'dataCollected') {
+                collectedData = message.data;
+                updateStatus(`采集完成，获得 ${collectedData.length} 条数据`, 'success');
+            }
+        });
+
+        // 初始化
+        updateStatus('Web元素数据采集器已就绪', 'success');
+    </script>
+</body>
+</html>
